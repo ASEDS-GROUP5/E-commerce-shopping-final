@@ -1,0 +1,64 @@
+a#gender:hover,
+a#gender:active {
+    color: lightseagreen;
+    text-decoration: none
+}
+
+a {
+    color: black;
+}
+
+a#logo:link,
+a#logo:visited {
+    background-color: rgb(14, 12, 12);
+    color: aliceblue;
+    width: 20%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 50px;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 5px 5px 5px 5px;
+}
+
+a#logo:hover,
+a#logo:active {
+    color: rgb(10, 9, 9);
+    background-color: snow;
+    transition: 0.5s;
+}
+
+img#P {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+img#P:hover {
+    transform: scale(1.1);
+}
+
+a#nav {
+    text-decoration: none;
+}
+
+a#gender:hover,
+a#gender:active {
+    color: lightseagreen;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a#nav:hover,
+a#nav:active {
+    color: lightgrey;
+    transition: 0.3s;
+}
+
+ul.n {
+    list-style-type: none;
+}
+
+li#nav {
+    display: inline;
+}
