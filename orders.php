@@ -96,8 +96,8 @@ if(!isset($_COOKIE['userid'])){
         <?php
             include 'database.php';
             global $db;
-            $qt=$db->prepare("SELECT D.order_id,O.status,B.quantity,P.photo,P.product_name FROM basket B,products P,order_details D,orders O where P.product_id=B.product_id and D.order_id=O.order_id and B.user_id=".$_COOKIE['userid']."");
-            $qt1=$db->prepare("SELECT D.order_id,O.status,B.quantity,P.photo,P.product_name FROM basket B,products P,order_details D,orders O where P.product_id=B.product_id and D.order_id=O.order_id  and B.user_id=".$_COOKIE['userid']."");
+            $qt=$db->prepare("SELECT D.order_id,O.status,B.quantity,P.photo,P.product_name FROM basket B,products P,order_details D,orders O where P.product_id=B.product_id and D.order_id=O.order_id and D.product_id=P.product_id and B.user_id=".$_COOKIE['userid']."");
+            $qt1=$db->prepare("SELECT D.order_id,O.status,B.quantity,P.photo,P.product_name FROM basket B,products P,order_details D,orders O where P.product_id=B.product_id and D.order_id=O.order_id  and D.product_id=P.product_id and B.user_id=".$_COOKIE['userid']."");
             $qt->execute();
             $qt1->execute();
             $count=$qt->rowCount();
