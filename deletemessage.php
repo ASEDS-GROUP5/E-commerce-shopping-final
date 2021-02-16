@@ -1,6 +1,6 @@
 <?php
 	$id=$_GET['id'];
-    $servername = "localhost"; $dbname = "ecommdb"; $user = "group5"; $pass = "webproject";
+    $servername = "sql313.epizy.com"; $dbname = "epiz_27871710_ecommdb"; $user = "epiz_27871710"; $pass = "TC0YsyQK5l";
             
     try{
         $dbco = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass);

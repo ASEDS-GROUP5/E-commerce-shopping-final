@@ -35,11 +35,17 @@ if(isset($_POST['login'])){
         }else{
             $msg='Field is required'; // utilisateur ou mot de passe vide
         }
+      
         
     }catch(PDOException $e){
         echo $e->getMessage();
     }
+    if(isset($msg)){
+            echo '<label class="text-danger">'.$msg.'</label>';
+        }
 }
+ 
+
 
 ?>
 

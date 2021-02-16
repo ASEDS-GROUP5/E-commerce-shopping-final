@@ -14,25 +14,6 @@
     <script src=""></script>
 </head>
 <body style="background-color: #003049;" >
-    <!-- <header class="navbar" style="background-color:rgb(172, 13, 13);text-align:center; ">
-        <a id="logo" class="col-sm-4 " href="home.html" alt="Home "><span class="glyphicon glyphicon-leaf "></span><b> E-SHOP</b></a>
-        <nav class="col-sm-4" style="color:rgb(7, 7, 6);padding: 20px;font-size:large; ">
-            <div class="navbar-header " style="color: mintcream; ">
-                <a id="nav" href="home.html">Home</a> |
-                <a id="nav" href=" ">Shop</a> |
-                <a id="nav" href="Contact_us.html">Contact us</a> |
-                <a id="nav" href="Help.html">Help</a>
-            </div>
-        </nav>
-        <div class="col-sm-4 " style="padding: 19px;font-size: 20px; ">
-            <div class="col-sm-6 ">
-                <a id="nav" href="login.html"> <span class="glyphicon glyphicon-log-in "></span><b> Log in</b></a>
-            </div>
-            <div class="col-sm-6 ">
-                <a id="nav" href="shoppingCart.html"> <span class="glyphicon glyphicon-shopping-cart "></span><b> Basket</b></a>
-            </div>
-        </div>
-    </header> -->
     <?php
     include 'repetetive/header.php';
     ?>
@@ -55,7 +36,7 @@
                 <h1>Edit profile</h1>
                 <p>Edit your account information and apply changes</p>
         
-                <form action="cookiecheck.php" method="POST">
+                <form action="Change_password.php" method="POST">
                     
                     <input type="password" name="fpass" placeholder="Actual password" id="label"><br><hr>
                     
@@ -68,6 +49,54 @@
                     
                     
                 </form>
+                <?php
+                    if(isset($_POST['fsend'])){
+                        if(!empty($_POST["fpass"]) && !empty($_POST["fpass1"]) && !empty($_POST["fpass"]) ){
+                            if(!isset($_COOKIE['userid'])){
+                                header('Location:login.html');
+                                echo "<script>alert('Sesseion expired')</script>";
+                            }else{
+                                include 'database.php';
+                                global $db;
+                                
+                                
+
+                                $actualPassword=$_POST["fpass"];
+                                $newPassword=$_POST["fpass1"];
+                                $conNewPassword=$_POST["fpass2"];
+                                
+
+                                try {
+                                    
+
+                                    if($newPassword==$conNewPassword){
+                                        $sql = "UPDATE users SET password='$newPassword' WHERE user_id=".$_COOKIE['userid']."";
+                                
+                                        // Prepare statement
+                                        $stmt = $db->prepare($sql);
+                                    
+                                        // execute the query
+                                        $stmt->execute();
+                                        // header("Location:Change_password.php");
+                                        echo "your passwword UPDATED successfully";
+
+                                    }else{
+                                        echo "Error";
+                                    }
+                                
+                                
+                                } catch(PDOException $e) {
+                                    echo $sql . "<br>" . $e->getMessage();
+                                }
+                                
+                                $db = null;
+                            }
+
+
+                        }
+                    }
+
+                ?>
                
 
                 

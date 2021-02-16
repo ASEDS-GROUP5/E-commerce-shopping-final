@@ -15,21 +15,20 @@
 </head>
 
 <body>
-<div class="recherchebarr">      
-
-  <form method="POST" class="navbar-form navbar-left" action="search.php">
-          <div class="input-group">
-              <input type="text" class="form-control" id="navbar-search-input" name="keyword" placeholder="Search for Product" required>
-              <input type="submit" name="Envoyer">
-              
-          </div>
-        </form>
-        
-</div>            
-    </div>
-    
- </div>
+<div class="container">
+    <form  method="POST" class="navbar-form navbar-left" action="search.php">
+        <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="Search" style="width: 400px;margin-left: 0px;border-radius: 5px 5px 5px 5px;border: black 2px solid; ">
+            
+            <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+           
+        </div>
+    </form>
 </div>
+           
+    
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
 
@@ -63,7 +62,7 @@
 					 
 						    foreach ($stmt as $row) {
                                 
-						    	$image = (!empty($row['photo'])) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
+						    	$image = (!empty($row['photo'])) ? ''.$row['photo'] : 'images/noimage.jpg';
                                 
 						        $inc = ($inc == 3) ? 1 : $inc + 1;
 	       						if($inc == 1) echo "<div class='row'>";
@@ -71,14 +70,15 @@
 	       							<div class='col-sm-4'>
 	       								<div class='box box-solid'>
 		       								<div class='box-body prod-body'>
-		       									<img src='".$image."' width='20%' height='300px' class='thumbnail'>
-                                                   <div>
+		       									<img src='".$image."' width='100%' height='350px' class='thumbnail'>
+											
+                                            <div>
                                                    <h4> product name : </h4>
 		       									<h4><a href='product.php?product_id=".$row['product_id']."'>".$row['product_name']."</a></h4>
 		       								</div>
 		       								<div class='box-footer'>
                                                <h4> Price: </h4>
-                                                <b> ".number_format($row['price'], 2)." &#36</b>
+                                                <b> ".$row['price']."DH</b>
 		       									</div>
 		       								</div>
 	       								</div>

@@ -156,16 +156,6 @@ if(isset($_GET['category'])){
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="fluid-container modal-footer">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-sm-6 btna">
-                                                            <button type="button" class="btn btn-primary">add to bag</button>
-                                                        </div>
-                                                        <div class="col-sm-6 btna">
-                                                            <button type="button" class="btn btn-primary">buy now</button>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -192,7 +182,7 @@ if(isset($_GET['category'])){
 
 
     <br><br><br>
-    <a href="add_product.php">add product</a>
+    
 
     <?php include('repetetive/footer.php'); ?>
 </html>

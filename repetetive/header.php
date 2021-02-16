@@ -2,10 +2,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylePravite.css">
-    <link rel="stylesheet" href="stylesheete.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheete.css">
     <title>E-SHOP</title>
 </head>
 <body>
@@ -35,10 +35,10 @@
                             <p style='color: rgb(243, 242, 242);margin-left: -60px;'>✔️Connected</p>
                         </div>
                         <div class='col-xs-4'>
-                        <form method='POST' action='cookiecheck.php'><button id='nav' type='submit' class='btn btn-primary' name='cart'><span class='glyphicon glyphicon-shopping-cart'></span><b>Basket</b></button><form>
+                        <form method='POST' action='cookiecheck.php'><button id='nav' type='submit' class='btn btn-primary' name='cart'><span class='glyphicon glyphicon-shopping-cart'></span><b>Basket</b></button></form>
                         </div>
                         <div class='col-xs-4'>
-                        <form method='POST' action='cookiechek.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button><form>
+                        <form method='POST' action='logout.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button></form>
                         </div>
                        
                     </div>
@@ -53,22 +53,6 @@
                         ";
                 }
 
-            ?>
-            <?php
-                 if(isset($_POST['logout'])){
-       
-                    setcookie('userid','',time()-700000);
-                    session_destroy();
-                    header('Location:login.html');
-                }
-                if (isset($_POST['cart'])){
-                    if(!isset($_COOKIE['userid'])){
-                        header('Location: login.html');
-                    }else{
-                        header('Location: shoppingCart.php');
-                    }
-                }
-                
             ?>
         </header>
     </div>

@@ -58,12 +58,19 @@
 <body style="background-image: linear-gradient(to top, #ecedee 0%, #eceeef 75%, #e7e8e9 100%);">
     <header class="navbar" style="background-color:rgb(172, 13, 13);text-align:center;">
         <a id="logo" class="col-sm-4" href="index.php" alt="Home"><span class="glyphicon glyphicon-leaf"></span><b> E-SHOP</b></a>
-        <nav class="col-sm-6 text-center" style="color:rgb(7, 7, 6);padding: 20px;font-size:large;margin-left: 50px;">
-            <div class="navbar-header" style="color: mintcream;">
-                <a id="nav" href="index.php">Home</a> |
-                <a id="nav" href="">Shop</a> |
-                <a id="nav" href="Contact_us.php">Contact us</a> |
-                <a id="nav" href="Help.php">Help</a>
+        <nav class="col-sm-5" style="color:rgb(7, 7, 6);padding: 20px;font-size:large; ">
+            <div class="navbar-header " style="color: mintcream;">
+                <ul class="n">
+                    <li id="nav"><a id="nav" href="index.php">Home </a></li>|
+                    <li id="nav"class="dropdown"><a id="nav" class="dropdown-toggle" data-toggle="dropdown" href="">Shop<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="shop.php?category=Women s fashion">Women's Fashion</a></li>
+                            <li><a href="shop.php?category=Men s fashion">Men's Fashion</a></li>
+                        </ul>
+                    </li> |
+                    <li id="nav"><a id="nav" href="Contact_us.html">Contact us </a></li>|
+                    <li id="nav"><a id="nav" href="Help.php"> Help</a></li>
+                </ul>
             </div>
         </nav>
 

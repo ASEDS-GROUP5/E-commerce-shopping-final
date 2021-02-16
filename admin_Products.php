@@ -20,7 +20,7 @@
         </nav>
         <div class="col-sm-5" style="padding: 19px;font-size: 20px;">
             <div class="col-sm-4">
-            <form method='POST' action='logout.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button><form>
+            <form method='POST' action='logout.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button></form>
             </div>
         </div>
     </header>

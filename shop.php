@@ -58,21 +58,21 @@
     <?php include('repetetive/search-box.php'); ?>
         <div class="container">
             <div class="row ">
-               
-                    <div class="row">
-                        <div class="col-sm-4 ">
+                <div class="col-lg-3">
+                    
                             <ul id="categories-list">
                                 <li><a href=""><?php echo $category?></a></li>
                                 <li><a href="shopping.php?category=<?php echo $category ?>&&sub_category=clothings">clothings</a></li>
                                 <li><a href="shopping.php?category=<?php echo $category ?>&&sub_category=shoes">shoes</a></li>
                             </ul>
-                        </div>
+                        
                     
-                   
+                    
                         <aside class="col-sm-8 " >
                             <img id="pub" src="Images/pexels-nataliya-vaitkevich-6214145.jpg" alt="pub" style="width:600px;height:300px">
                         </aside>
-                    </div>
+                    
+                </div>
                         
                     
                 
@@ -118,6 +118,7 @@
 								                                <?php endforeach; ?>
                                                                 <label for="quantity">Quantity :</label>
                                                                 <input type="number" id="quantity" name="quantity" min="1" max="1000">
+                                                                <br><br>
                                                                 <div class="row justify-content-center">
                                                                     <div class="col-sm-6 btna">
                                                                         <button type="submit" id="<?php echo $clothe['product_id'] ?>" name="addbag<?php echo $clothe['product_id'] ?>" class="btn btn-primary">add to bag</button>
@@ -149,16 +150,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="fluid-container modal-footer">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-sm-6 btna">
-                                                            <button type="button" class="btn btn-primary">add to bag</button>
-                                                        </div>
-                                                        <div class="col-sm-6 btna">
-                                                            <button type="button" class="btn btn-primary">buy now</button>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -218,6 +209,7 @@
 								                                <?php endforeach; ?>
                                                                 <label for="quantity">Quantity :</label>
                                                                 <input type="number" id="quantity" name="quantity" min="1" max="1000">  
+                                                                <br>
                                                                 <div class="row justify-content-center">
                                                                     <div class="col-sm-6 btna">
                                                                         <button type="submit" name="addbag<?php echo $shoe['product_id'] ?>" class="btn btn-primary">add to bag</button>
@@ -249,15 +241,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="fluid-container modal-footer">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-sm-6 btna">
-                                                            <form action="addbag.php">
-                                                                <button type="submit" class="btn btn-primary">add to bag</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -277,7 +260,6 @@
 
 
     <br><br><br>
-    <a href="add_product.php">add product</a>
-
+    
     <?php include('repetetive/footer.php'); ?>
 </html>

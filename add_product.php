@@ -1,154 +1,177 @@
 <?php
-include('repetetive/conn.php');
 
-$reference = $category = $sub_category = $name = $size = $price = $quantity = $path = $keyWords = '';
-$errors = array('reference' => '', 'category' => '', 'sub_category' => '', 'name' => '', 'size' => '', 'price' => '', 'path' => '', 'keyWords' => '');
-	
+	include('repetetive/conn.php');
+    
+
+
+    
+
+
+
+	$reference = $category = $sub_category = $name = $size = $price = $quantity = $path = $keyWords = '';
+	$errors = array('reference' => '', 'category' => '', 'sub_category' => '', 'name' => '', 'size' => '', 'price' => '', 'path' => '', 'keyWords' => '');
 	if(isset($_POST['submit'])){
-	
-		if(empty($_POST['reference'])){
-			$errors['reference'] = 'A reference is required';
-		} else{
-			$reference = $_POST['reference'];
-			if(!is_numeric($reference)){
-				$errors['reference'] = 'Reference must be numbers only';
-			}
-        }
 
+        if(isset($_COOKIE['userid']) && $_COOKIE['userid'] == 1){
+ 
 
         
-        if(empty($_POST['category'])){
-			$errors['category'] = 'A category is required';
-		} else{
-			$category = $_POST['category'];
-			if(!preg_match('/^[a-zA-Z\s]+$/', $category)){
-				$errors['category'] = 'invalid category, enter "Women s fashion" or "Men s fashion"';
-			}
-        } 
-
-        if(empty($_POST['sub_category'])){
-			$errors['sub_category'] = 'A sub category is required';
-		} else{
-			$sub_category = $_POST['sub_category'];
-			if(!preg_match('/^[a-zA-Z\s]+$/', $sub_category)){
-				$errors['sub_category'] = 'Category must be letters and spaces only "shoes"or"clothings"';
-			}
-        } 
-
-        
-		if(empty($_POST['name'])){
-			$errors['name'] = 'A name is required';
-		} else{
-			$name = $_POST['name'];
-			if(!preg_match('/^[a-zA-Z\s]+$/', $name)){
-				$errors['name'] = 'Name must be letters and spaces only';
-			}
-		}
 		
-		if(empty($_POST['size'])){
-			$errors['size'] = 'At least one size must be indicated';
-		} else{
-			$size = $_POST['size'];
-			if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $size)){
-				$errors['size'] = 'Sizes must be a comma separated list';
-			}
-        }
-
-        if(empty($_POST['price'])){
-			$errors['price'] = 'Price must be indicated';
-		} else{
-			$price = $_POST['price'];
-			if(!is_numeric($price)){
-				$errors['price'] = 'Price must be a number separated by .';
-			}
-        }
-
-        if(empty($_POST['path'])){
-			$errors['path'] = 'A path is required';
-		} else{
-			$path = 'images/'.$_POST['path'];
-        } 
-        
+            if(empty($_POST['reference'])){
+                $errors['reference'] = 'A reference is required';
+            } else{
+                $reference = $_POST['reference'];
+                if(!is_numeric($reference)){
+                    $errors['reference'] = 'Reference must be numbers only';
+                }
+            }
 
 
-        if(empty($_POST['keyWords'])){
-			$errors['keyWords'] = 'Enter one key word at least';
-		} else{
-			$keyWords = $_POST['keyWords'];
-			if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $keyWords)){
-				$errors['keyWords'] = 'Key words must be a comma separated list';
-			}
-        }
-        
-        $quantity = $_POST['quantity'];
-
-
-		if(array_filter($errors)){
-			// echo 'errors in form';
-		} else {
-            //echo 'form is valid';
             
-			// header('Location: index.php');
+            if(empty($_POST['category'])){
+                $errors['category'] = 'A category is required';
+            } else{
+                $category = $_POST['category'];
+                if(!preg_match('/^[a-zA-Z\s]+$/', $category)){
+                    $errors['category'] = 'invalid category, enter women fashion or men fashion';
+                }
+            } 
+
+            if(empty($_POST['sub_category'])){
+                $errors['sub_category'] = 'A sub category is required';
+            } else{
+                $sub_category = $_POST['sub_category'];
+                if(!preg_match('/^[a-zA-Z\s]+$/', $sub_category)){
+                    $errors['sub_category'] = 'Category must be letters and spaces only';
+                }
+            } 
+
             
-            // escape sql chars
-			$reference = $_POST['reference'];
-			$category =$_POST['category'];
-            $sub_category= $_POST['sub_category'];
-            $name =$_POST['name'];
-            $size = $_POST['size'];
+            if(empty($_POST['name'])){
+                $errors['name'] = 'A name is required';
+            } else{
+                $name = $_POST['name'];
+                if(!preg_match('/^[a-zA-Z\s]+$/', $name)){
+                    $errors['name'] = 'Name must be letters and spaces only';
+                }
+            }
+            
+            if(empty($_POST['size'])){
+                $errors['size'] = 'At least one size must be indicated';
+            } else{
+                $size = $_POST['size'];
+                if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $size)){
+                    $errors['size'] = 'Sizes must be a comma separated list';
+                }
+            }
+
+            if(empty($_POST['price'])){
+                $errors['price'] = 'Price must be indicated';
+            } else{
+                $price = $_POST['price'];
+                if(!is_numeric($price)){
+                    $errors['price'] = 'Price must be a number separated by .';
+                }
+            }
+
+            if(empty($_POST['path'])){
+                $errors['path'] = 'A path is required';
+            } else{
+                $path = 'images/'.$_POST['path'];
+            } 
+            
+
+
+            if(empty($_POST['keyWords'])){
+                $errors['keyWords'] = 'Enter one key word at least';
+            } else{
+                $keyWords = $_POST['keyWords'];
+                if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $keyWords)){
+                    $errors['keyWords'] = 'Key words must be a comma separated list';
+                }
+            }
+            
             $quantity = $_POST['quantity'];
-            $price = $_POST['price'];
-            $path = 'images/'.$_POST['path'];
-            $keyWords =$_POST['keyWords'];
 
 
-            
-			// create sql
-            $q1="SELECT category_id from category where category_name='".$category."'";
-            $q2="SELECT sub_category_id from subcat where sub_category='".$sub_category."'";
-            $result1=mysqli_query($conn, $q1);
-            $result2=mysqli_query($conn, $q2);
-            $q11 = mysqli_fetch_assoc($result1);
-            $q22 = mysqli_fetch_assoc($result2);
-            print_r($q11);
-			$sql = "INSERT INTO products(product_id, category_id, sub_category_id, product_name, keyo, price, photo, quantity, size) VALUES('$reference' ,".$q11['category_id']." ,".$q22['sub_category_id'].",'$name','$keyWords','$price','$path','$quantity','$size')";
-
-			// save to db and check
-			if(mysqli_query($conn, $sql)){
-				// success
-				header('Location: admin_dashboard.php');
-			} else {
-				echo 'query error: '. mysqli_error($conn);
-			}
+            if(array_filter($errors)){
+                // echo 'errors in form';
+            } else {
+                //echo 'form is valid';
+                
+                // header('Location: index.php');
+                
+                // escape sql chars
+                $reference = mysqli_real_escape_string($conn, $_POST['reference']);
+                $category = mysqli_real_escape_string($conn, $_POST['category']);
+                $name = mysqli_real_escape_string($conn, $_POST['name']);
+                $size = mysqli_real_escape_string($conn, $_POST['size']);
+                $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
+                $price = mysqli_real_escape_string($conn, $_POST['price']);
+                $path = 'images/'.mysqli_real_escape_string($conn, $_POST['path']);
+                $keyWords = mysqli_real_escape_string($conn, $_POST['keyWords']);
 
 
-		}
+                
+                // create sql
+                $q1="SELECT category_id from category where category_name='".$category."'";
+                $q2="SELECT sub_category_id from subcat where sub_category='".$sub_category."'";
+                $result1=mysqli_query($conn, $q1);
+                $result2=mysqli_query($conn, $q2);
+                $q11 = mysqli_fetch_assoc($result1);
+                $q22 = mysqli_fetch_assoc($result2);
+                $sql = "INSERT INTO products(product_id, category_id, sub_category_id, product_name, keyo, price, photo, quantity, size) VALUES('$reference' ,".$q11['category_id']." ,".$q22['sub_category_id'].",'$name','$keyWords','$price','$path','$quantity','$size')";
 
-	} // end POST check
+                // save to db and check
+                if(mysqli_query($conn, $sql)){
+                    // success
+                    header('Location: admin_dashboard.html');
+                } else {
+                    echo 'query error: '. mysqli_error($conn);
+                }
+
+
+            }
+
+        }else{
+            header('Location: login.html');
+        }
+
+    }
+
+    
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Users</title>
+    <title>Categories</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- <link rel='stylesheet' type='text/css' media='screen' href='./admin_main.css'> -->
-    <link rel="stylesheet" href="stylesheete.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='stylesheete.css'>
     <script src='main.js'></script>
 </head>
-<header class="navbar" style="background-color:rgb(172, 13, 13);text-align:center;">
+
+<body>
+    <header class="navbar" style="background-color:rgb(172, 13, 13);text-align:center;">
         <a id="logo" class="col-sm-3" href="index.php" alt="Home"><span class="glyphicon glyphicon-leaf"></span><b> E-SHOP</b></a>
         <nav class="col-sm-4" style="color:rgb(7, 7, 6);padding: 20px;font-size:large;">
             <div class="navbar-header" style="color: mintcream;">
-                <a id="nav" href="index.php"><b>Home</b></a>
-                <a id="nav" href="add_product.php"><span><img src="./img/icons/icons8-plus-50.png" style="height: 30px; width: 30px; "></img></span><b>Add product</b></a> |
+                <div class="row">
+                    <a class="col-lg-4" id="nav" href="index.php"><b>Home</b></a>
+                    <a class="col-lg-4" id="nav" href="https://www.groupe5.epizy.com/add_product.php"><span><img src="./img/icons/icons8-plus-50.png" style="height: 30px; width: 30px; "></img></span><b>Add product</b></a>
+                    <form class="col-lg-4" action="logout.php" method="POST">
+                        <input type="submit" name="logout" value="log out" class="btn add-btn" style : "float: right">
+                    </form>
+                </div>
+
             </div>
         </nav>
         
-</header>
+    </header>
     <div class="container" id="form">
         <div class="card text-center">
             <div class="card-header">

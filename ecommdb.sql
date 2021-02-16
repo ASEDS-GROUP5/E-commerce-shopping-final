@@ -91,9 +91,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `category_id`, `product_name`, `keyo`, `price`, `photo`, `quantity`, `size`, `sub_category_id`, `description`) VALUES
-(10101010, 0, 'clothes ', 'men, clothes, clothings', 49.99, 'images/t-shirt-1426871.jpeg', 100, 'S', 0, ''),
-(90909090, 0, 'shoes', 'men, shoes', 99.99, 'images/sh1.jpeg', 100, '', 0, ''),
-(121212121, 0, 'shoes', 'men, shoes', 99.99, 'images/shoes-1415245.jpeg', 100, '', 0, ''),
+(10101010, 0, 'clothes ', 'men, clothes, clothings,t-shirt', 49.99, 'images/t-shirt-1426871.jpeg', 100, 'S', 0, 't-shirt bleu,tissu de bonne qualité  '),
+(90909090, 0, 'shoes', 'men, shoes,espadrilles', 99.99, 'images/sh1.jpeg', 100, '', 0, 'espadrilles oranges de bonne qualité , tres legères pour le sport '),
+(121212121, 0, 'shoes', 'men, shoes', 99.99, 'images/shoes-1415245.jpeg', 100, '', 0, 'chaussures noirs de bonne qualité '),
 (123456789, 0, 'dress', 'dress, women, clothes, clothings', 99.99, 'images\\jose-martinez-Q76SMw8HVYk-unsplash.jpg', 3, '', 0, ''),
 (132333121, 0, 'shoes', 'men, shoes', 29.99, 'images/sh6.jfif', 100, '', 0, ''),
 (192837465, 0, 'short dress ', 'dress, women, clothes, clothings, pink', 299.99, 'images/kate-skumen-PJRabkuH3_Q-unsplash.jpg', 90, '', 0, ''),

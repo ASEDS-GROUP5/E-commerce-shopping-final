@@ -96,10 +96,7 @@
                 <p style='color: rgb(243, 242, 242);margin-left: -60px;'>✔️Connected</p>
             </div>
             <div class='col-xs-4'>
-            <form method='POST' action='cookiecheck.php'><button id='nav' type='submit' class='btn btn-primary' name='cart'><span class='glyphicon glyphicon-shopping-cart'></span><b>Basket</b></button><form>
-            </div>
-            <div class='col-xs-4'>
-            <form method='POST' action='cookiechek.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button><form>
+            <form method='POST' action='logout.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button></form>
             </div>
             
         </div>
@@ -192,7 +189,7 @@
 
                     </form>
                     
-                    <form method="POST" action="cookiecheck.php">
+                    <form method="POST" action="cart.php">
                     <button type="submit" name="buy" id="buy" class="btn btn-default" style="background-color:springgreen;color: snow;margin-top: 50px;"><b></b> Buy Now</b></button>
                     </form>
                 </div>

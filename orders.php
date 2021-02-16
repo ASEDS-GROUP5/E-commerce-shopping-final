@@ -1,8 +1,6 @@
 <?php
 session_start();
-if(!isset($_COOKIE['userid'])){
-    header('Refresh:0; url:login.html');
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +9,10 @@ if(!isset($_COOKIE['userid'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>My Orders</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+      <title>My Orders</title>
 </head>
 <style>
     a {
@@ -80,10 +80,10 @@ if(!isset($_COOKIE['userid'])){
                 <p style='color: rgb(243, 242, 242);margin-left: -60px;'>✔️Connected</p>
             </div>
             <div class='col-xs-4'>
-            <form method='POST' action='cookiecheck.php'><button id='nav' type='submit' class='btn btn-primary' name='cart'><span class='glyphicon glyphicon-shopping-cart'></span><b>Basket</b></button><form>
+            <form method='POST' action='cookiecheck.php'><button id='nav' type='submit' class='btn btn-primary' name='cart'><span class='glyphicon glyphicon-shopping-cart'></span><b>Basket</b></button></form>
             </div>
             <div class='col-xs-4'>
-            <form method='POST' action='cookiechek.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button><form>
+            <form method='POST' action='logout.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button></form>
             </div>
             
         </div>
@@ -139,7 +139,7 @@ if(!isset($_COOKIE['userid'])){
                        <div class='panel panel-default'>
                            <div class='panel-heading' style='background-color: orange;'>
                                <b>Order ID : ".$results['order_id']."</b>
-                               <form method='POST' action='cookiecheck.php?idorder=".$results['order_id']."'>
+                               <form method='POST' action='removeorr.php?idorder=".$results['order_id']."'>
                                    <button type='submit' id=".$results['order_id']." name='removeorr' class='btn btn-danger'>
                                            <span class='glyphicon glyphicon-remove'></span>Cancel the order
                                    </button>

@@ -37,10 +37,10 @@
                     <p style='color: rgb(243, 242, 242);margin-left: -60px;'>✔️Connected</p>
                 </div>
                 <div class='col-xs-4'>
-                    <form method='POST' action='cookiecheck.php'><button id='nav' type='submit' class='btn btn-primary' name='cart'><span class='glyphicon glyphicon-shopping-cart'></span><b>Basket</b></button><form>
+                    <form method='POST' action='cookiecheck.php'><button id='nav' type='submit' class='btn btn-primary' name='cart'><span class='glyphicon glyphicon-shopping-cart'></span><b>Basket</b></button></form>
                 </div>
                 <div class='col-xs-4'>
-                    <form method='POST' action='cookiechek.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button><form>
+                    <form method='POST' action='logout.php'><button id='nav' type='submit' class='btn btn-danger' name='logout'><b>Log out</b></button></form>
                 </div>
                        
         </div>
@@ -63,7 +63,7 @@
                 <main id=main class="center">
                     <h1>Edit profile</h1> <hr color="black">
                 <p>Edit your account information and apply changes</p>
-                <form action="cookiecheck.php" method="POST">
+                <form action="Edit_profile.php" method="POST">
                     <div class="col-sm-4">
                         
                             <label for="fname">First name: </label><br>
@@ -97,6 +97,48 @@
                     
                         <input type="submit" value="Apply changes" name="edit"  style="border: 5px solid black;">
                 </form>
+                <?php
+                    if(isset($_POST['edit'])){
+                        if(!empty($_POST["fuser"]) && !empty($_POST["fadress"]) && !empty($_POST["fphone"]) && !empty($_POST["femail"]) && !empty($_POST["fmobile"])){
+                            if(!isset($_COOKIE['userid'])){
+                                header('Location:login.html');
+                                echo "<script>alert('Sesseion expired')</script>";
+                            }else{
+                                include 'database.php';
+                                global $db;
+                                $username1=$_POST["fuser"];
+                                $adress=$_POST["fadress"];
+                                $phone=$_POST["fphone"];
+                                $email=$_POST["femail"];
+
+                                try {
+                                
+                                    $sql = "UPDATE users SET username='$username1', address='$adress', contact='$phone', email='$email' WHERE user_id=".$_COOKIE['userid']."";
+                                
+                                    // Prepare statement
+                                    $stmt = $db->prepare($sql);
+                                
+                                    // execute the query
+                                    $stmt->execute();
+                                
+                                
+                                    // echo a message to say the UPDATE succeeded
+                                   
+                                    echo "your profile UPDATED successfully";
+                                    
+                                } catch(PDOException $e) {
+                                    echo $sql . "<br>" . $e->getMessage();
+                                }
+                                
+                                $db = null;
+                            }
+
+
+                        }
+                    }
+
+
+                ?>
                
                 </main>
                 
